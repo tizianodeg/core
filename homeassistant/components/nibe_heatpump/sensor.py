@@ -156,6 +156,7 @@ class Sensor(CoilEntity, SensorEntity):
         else:
             self._attr_native_unit_of_measurement = coil.unit
             self._attr_entity_category = EntityCategory.DIAGNOSTIC
+        self.translation_key = str(coil.address)
 
     def _async_read_coil(self, data: CoilData):
         self._attr_native_value = data.value
